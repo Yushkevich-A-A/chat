@@ -1,7 +1,5 @@
 export default class DrawAutentification {
   constructor() {
-    this.drawAutentification();
-
   }
 
   drawAutentification() {
@@ -16,7 +14,7 @@ export default class DrawAutentification {
       </div>
       <form class="form-login">
         <div class="block-alias">
-          <input type="text" class="input alias-input" name="nickname" required><!-- input-error -->
+          <input type="text" class="input alias-input" name="nickname"><!-- input-error -->
         </div>
         <div class="submit-alias">
           <button class="button button-alias">Продолжить</button>
@@ -29,27 +27,45 @@ export default class DrawAutentification {
   </div>`;
 
   document.body.appendChild(this.wrapper);
+  this.form = document.querySelector('.form-login');
+  this.input = document.querySelector('.alias-input');
+  this.blockError = document.querySelector('.autentification-error');
   }
 
   deleteAutentificationBlock() {
-    this.wrapper.parentElement.removeChild(this.wrapper)
+    this.wrapper.parentElement.removeChild(this.wrapper);
+    this.form = null;
   }
 
-  sendAuth(value) {
-    const formData = new FormData(value);
-    const method = 'setNickName';
-    formData.append('method', method)
-    const xhr = new XMLHttpRequest();
-    xhr.open('POST', 'http://localhost:7070');
+  async sendLogin() {
+    const formData = new FormData(this.form);
 
-    xhr.addEventListener('load', event => {
-      if(xhr.response.status >= 200 || xhr.response.status <= 300){
-        console.log('Привет Мир!!!');
-      }
+    const response = await fetch('http://localhost:7070/', {
+      method: 'POST',
+      body: formData
     })
 
+    if (response.ok) { 
+      let json = await response.json();
+      return json;
+    } else {
+      alert("Ошибка HTTP: " + response.status);
+    }
+  }
 
+  resetForm() {
+    this.form.reset();
+  }
 
-    xhr.send();
+  addInputError(textError) {
+    this.input.classList.add('input-error');
+    this.blockError.textContent = textError;
+    this.blockError.classList.remove('disable');
+  }
+  
+  deleteInputError() {
+    this.input.classList.remove('input-error');
+    this.blockError.textContent = '';
+    this.blockError.classList.add('disable');
   }
 }
