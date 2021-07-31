@@ -1,7 +1,4 @@
 export default class DrawAutentification {
-  constructor() {
-  }
-
   drawAutentification() {
     this.wrapper = document.createElement('div');
     this.wrapper.classList.add('wrapper-autentification');
@@ -26,10 +23,10 @@ export default class DrawAutentification {
     </div>
   </div>`;
 
-  document.body.appendChild(this.wrapper);
-  this.form = document.querySelector('.form-login');
-  this.input = document.querySelector('.alias-input');
-  this.blockError = document.querySelector('.autentification-error');
+    document.body.appendChild(this.wrapper);
+    this.form = document.querySelector('.form-login');
+    this.input = document.querySelector('.alias-input');
+    this.blockError = document.querySelector('.autentification-error');
   }
 
   deleteAutentificationBlock() {
@@ -43,14 +40,12 @@ export default class DrawAutentification {
 
     const response = await fetch('http://192.168.1.57:7070/', {
       method: 'POST',
-      body: formData
-    })
+      body: formData,
+    });
 
-    if (response.ok) { 
-      let json = await response.json();
+    if (response.ok) {
+      const json = await response.json();
       return json;
-    } else {
-      alert("Ошибка HTTP: " + response.status);
     }
   }
 
@@ -63,7 +58,7 @@ export default class DrawAutentification {
     this.blockError.textContent = textError;
     this.blockError.classList.remove('disable');
   }
-  
+
   deleteInputError() {
     this.input.classList.remove('input-error');
     this.blockError.textContent = '';

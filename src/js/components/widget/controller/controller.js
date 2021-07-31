@@ -13,28 +13,28 @@ export default class Controller {
   }
 
   listeners() {
-    document.addEventListener('click', event => {
+    document.addEventListener('click', (event) => {
       event.preventDefault();
-      if(event.target.closest('.button-alias')){
+      if (event.target.closest('.button-alias')) {
         this.checkAndSendLogin();
       }
-    })
+    });
 
-    document.addEventListener('keydown', event => {
-      if (event.target.closest('.textarea-message') && event.code === 'Enter'){
+    document.addEventListener('keydown', (event) => {
+      if (event.target.closest('.textarea-message') && event.code === 'Enter') {
         event.preventDefault();
         const textBlock = event.target.closest('.textarea-message');
-          if (textBlock.value.trim() !== '') {
-            const obj = {
-              user: this.nickname,
-              date: +new Date(),
-              text: textBlock.value.trim(),
-            }
-            this.ws.send(JSON.stringify({
-              status: 'message',
-              message: obj,
-            }));
-          }
+        if (textBlock.value.trim() !== '') {
+          const obj = {
+            user: this.nickname,
+            date: +new Date(),
+            text: textBlock.value.trim(),
+          };
+          this.ws.send(JSON.stringify({
+            status: 'message',
+            message: obj,
+          }));
+        }
         textBlock.value = '';
       }
     });
@@ -48,9 +48,9 @@ export default class Controller {
     this.login.deleteInputError();
     const response = await this.login.sendLogin();
     if (!response.status) {
-    this.login.addInputError('Этот никнейм занят');
-    return;
-    } 
+      this.login.addInputError('Этот никнейм занят');
+      return;
+    }
     this.nickname = this.login.input.value;
     this.login.deleteAutentificationBlock();
     this.drawChat();
@@ -68,7 +68,7 @@ export default class Controller {
       }));
     });
 
-    this.ws.addEventListener('message', event => {
+    this.ws.addEventListener('message', (event) => {
       const data = JSON.parse(event.data);
       if (data.status === 'init') {
         this.chat.drawChatList(data.chat, this.nickname);
@@ -82,10 +82,10 @@ export default class Controller {
         this.chat.drawParticipantList(data.users, this.nickname);
       }
     });
-    this.ws.addEventListener('close', event => {
+    this.ws.addEventListener('close', (event) => {
       event.preventDefault();
       this.ws.send('exfcnybr elfkty');
       this.ws.close(1001, this.nickname);
-    })
+    });
   }
 }
