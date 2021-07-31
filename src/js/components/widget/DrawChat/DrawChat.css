@@ -1,0 +1,124 @@
+.wrapper-widget {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .widget {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .participants-block {
+    margin-top: 25px;
+    padding: 20px 10px;
+    background-color: white;
+    border-top: 1px solid #818181;
+    border-bottom: 1px solid #818181;
+    border-left: 1px solid #818181;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+  }
+  
+  .participants-item {
+    display: flex;
+    align-items: center;
+  }
+  
+  .participants-item:nth-child(n + 2) {
+    margin-top: 15px;
+  }
+  
+  .participants-image {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #818181;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .nickname {
+    font-size: 20px;
+  }
+
+  .you-nickname {
+    color: red;
+  }
+  
+  .chat-block {
+    width: 600px;
+    height: 500px;
+    padding: 20px;
+    background-color: white;
+    border: 1px solid #818181;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  
+  .chat-messages-block {
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+  }
+  
+  .chat-message-block:nth-child(n + 2) {
+    margin-top: 30px;
+  }
+  
+  .participant-information {
+    display: flex;
+    justify-content: flex-start;
+  }
+  
+  .participant-nickname,
+  .date-message {
+    font-size: 12px;
+  }
+  
+  .participant-nickname::after {
+    content: ",";
+  }
+  
+  .you-message {
+    align-self: flex-end;
+    margin-right: 10px;
+  }
+
+  .you-message > .participant-information {
+    justify-content: flex-end;
+  }
+  
+  .you-message > .participant-information > .participant-nickname, 
+  .you-message > .participant-information > .date-message {
+    color: red;
+  }
+  
+  .you-message > .message-block > .message {
+    text-align: right;
+  }
+  
+  .date-message {
+    margin-left: 10px;
+  }
+  
+  .textarea-message {
+    resize: none;
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #818181;
+    border-radius: 10px;
+    height: 35px;
+    margin-top: 30px;
+  }
+  
+  .textarea-message:focus-visible {
+    outline: none;
+    border: 1px solid #818181;
+  }

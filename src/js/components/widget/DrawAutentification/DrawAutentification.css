@@ -1,0 +1,76 @@
+
+.wrapper-autentification {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .autentification {
+    position: relative;
+    max-width: 400px;
+    width: 100%;
+    padding: 10px 15px;
+    background-color: white;
+    border: 1px solid #818181;
+    border-radius: 15px;
+  }
+  
+  .autentification-title {
+    text-align: center;
+  }
+  
+  .autentification-title-block {
+    margin-bottom: 15px;
+  }
+  
+  .input {
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #818181;
+  }
+  
+  .input:focus-visible {
+    outline: none;
+    border: 1px solid #818181;
+  }
+  
+  .input-error {
+    border: 1px solid #ff2525;
+    box-shadow: inset 0 0 6px #ff2525;
+    transition: box-shadow;
+  }
+  
+  .input-error:focus-visible {
+    outline: none;
+    border: 1px solid #ff2525;
+  }
+  
+  .block-alias {
+    margin-bottom: 15px;
+  }
+  
+  .button-alias {
+    padding: 10px 40px;
+    background-color: #fff;
+    border-radius: 15px;
+    border: 1px solid #818181;
+  }
+  
+  .submit-alias {
+    text-align: center;
+  }
+  
+  .button-alias:hover {
+    background-color: rgb(233, 233, 233);
+  }
+  
+  .autentification-error {
+    position: absolute;
+    top: 25px;
+    color: red;
+  }
