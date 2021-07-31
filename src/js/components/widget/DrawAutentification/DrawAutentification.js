@@ -38,7 +38,7 @@ export default class DrawAutentification {
   async sendLogin() {
     const formData = new FormData(this.form);
 
-    const response = await fetch('http://192.168.1.57:7070/', {
+    const response = await fetch('https://yushkevichchat.herokuapp.com/', {
       method: 'POST',
       body: formData,
     });
