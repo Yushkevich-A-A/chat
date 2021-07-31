@@ -2,6 +2,6 @@
 
 [ссылка на приложение](https://yushkevich-a-a.github.io/chat/)
 
-[ссылка на сервер Herocu](https://yushkevichchat.herokuapp.com/)
+[ссылка на сервер Heroku](https://yushkevichchat.herokuapp.com/)
 
 [репозиторий сервера](https://github.com/Yushkevich-A-A/chat_server)
