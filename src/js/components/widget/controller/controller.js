@@ -58,7 +58,7 @@ export default class Controller {
 
   drawChat() {
     this.chat.drawChat();
-    this.ws = new WebSocket('ws:://yushkevichchat.herokuapp.com/');
+    this.ws = new WebSocket('ws://yushkevichchat.herokuapp.com/');
 
     this.ws.addEventListener('open', () => {
       this.ws.send(JSON.stringify({
